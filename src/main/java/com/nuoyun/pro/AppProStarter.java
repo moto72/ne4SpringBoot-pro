@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
  * @version V1.0
  * @Copyright: 2019 nuoyun All rights reserved.
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.nuoyun.pro.action","com.nuoyun.pro.service","com.tmsps.ne4spring.base"})
 @Slf4j
 public class AppProStarter {
 	public static void main(String[] args) {

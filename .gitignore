@@ -1,8 +1,10 @@
 /target/
 
+/logs/
 .settings/
 .project
 .classpath
+.DS_Store
 
 # Compiled class file
 *.class
