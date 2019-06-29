@@ -39,6 +39,19 @@ spring:
 #    # 合并多个DruidDataSource的监控数据
 #    useGlobalDataSourceStat: true  
     
+# redis 配置
+  redis:
+    database: 0
+    host: 192.168.1.223
+    port: 6379
+    password: nuoyun
+     
+    jedis:
+      pool:
+        max-active: 100
+        min-idle: 10
+        max-idle:  100
+    
     
 logging:
   config: classpath:logback.xml
