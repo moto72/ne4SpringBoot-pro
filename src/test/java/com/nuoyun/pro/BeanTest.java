@@ -10,9 +10,9 @@ public class BeanTest extends BaseTest {
 	private RedisConfig redisConfig;
 	@Test
 	public void test() {
-		System.err.println(redisConfig.getPassword());
+		System.err.println(redisConfig.getMaxActive());
 		System.err.println(redisConfig.getJedisPoolConfig().toString());
-		System.err.println(redisConfig.getJedisPool());
-		System.err.println(redisConfig.getJedisPoolConfig().toString());
+//		System.err.println(redisConfig.getJedisPool());
+//		System.err.println(redisConfig.getJedisPoolConfig().toString());
 	}
 }

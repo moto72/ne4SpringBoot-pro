@@ -1,7 +1,6 @@
 package com.nuoyun.pro.config;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
-@ConfigurationProperties(prefix = "spring.redis.jedis.pool")
 @Component
 @Data
 @Slf4j
@@ -23,8 +21,11 @@ public class RedisConfig {
 	@Value("${spring.redis.password}")
 	private String password;
 
+	@Value("${spring.redis.jedis.pool.max-active}")
 	private int maxActive;
+	@Value("${spring.redis.jedis.pool.max-idle}")
 	private int maxIdle;
+	@Value("${spring.redis.jedis.pool.min-idle}")
 	private int minIdle;
 	
 	public JedisPoolConfig getJedisPoolConfig() {
@@ -40,9 +41,7 @@ public class RedisConfig {
 	@Bean
     public JedisPool getJedisPool(){
 		JedisPoolConfig jedisPoolConfig = getJedisPoolConfig();
-        JedisPool jedisPool = new JedisPool(jedisPoolConfig, host, port, 2000, password);
-        log.info("JedisPool 注入完成:{}",jedisPoolConfig.toString());
-        return jedisPool;
+		log.info("jedisPool 注入完成 :{}",jedisPoolConfig.toString());
+		return new JedisPool(jedisPoolConfig, host, port, 2000, password);
     }
-
 }
