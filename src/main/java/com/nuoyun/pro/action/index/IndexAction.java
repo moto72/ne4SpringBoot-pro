@@ -17,28 +17,25 @@ import lombok.extern.slf4j.Slf4j;
 public class IndexAction extends BaseAction {
 	@Autowired
 	private IndexService indexService;
-	@Autowired
-	private JedisService jedisService;
+	
+	@RequestMapping()
+	public String defaultView() {
+		return "welcome to index";
+	}
 	
 	@GetMapping("index")
 	public String index() {
-		log.debug("");
-		if(jedisService.get("userList")==null) {
-			System.err.println("查询数据库");
-			jedisService.set("userList", indexService.getUsers());
-		}
-		
-		return jedisService.get("userList");
+		return indexService.getUsers();
 	}
-	
+
 	@GetMapping("login")
 	public String login() {
 		return "this is login";
 	}
-	
+
 	@GetMapping("logout")
 	public String logout() {
 		return "GoodBye";
 	}
-	
+
 }
