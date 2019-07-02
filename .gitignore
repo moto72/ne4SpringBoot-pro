@@ -5,6 +5,7 @@
 .project
 .classpath
 .DS_Store
+.factorypath
 
 # Compiled class file
 *.class
