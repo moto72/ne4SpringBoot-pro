@@ -11,7 +11,7 @@
 
 	<groupId>com.nuoyun</groupId>
 	<artifactId>pro</artifactId>
-	<version>1-SNAPSHOT</version>
+	<version>v1.0</version>
 	<packaging>jar</packaging>
 
 	<name>pro</name>
@@ -19,6 +19,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<skipTests>true</skipTests>
 	</properties>
 
 	<dependencies>
@@ -87,4 +88,23 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.nuoyun.pro.AppProStarter</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
