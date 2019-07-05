@@ -6,7 +6,17 @@ import org.springframework.stereotype.Service;
 
 import com.nuoyun.pro.config.SystemConfig;
 
+/**
+ * @Title:  RedisService.java
+ * @Package com.nuoyun.pro.service
+ * @Description:请使用JedisService来进行Redis的操作。
+ * @author: zhangwei
+ * @date:   2019-07-05
+ * @version V1.0
+ * @Copyright: 2019 nuoyun All rights reserved.
+ */
 @Service
+@Deprecated
 public class RedisService {
 
 	@Autowired
