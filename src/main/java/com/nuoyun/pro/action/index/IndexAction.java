@@ -19,8 +19,8 @@ public class IndexAction extends BaseAction {
 	private IndexService indexService;
 	
 	@RequestMapping()
-	public String defaultView() {
-		return "welcome to index";
+	public String defaultView(String username) {
+		return "welcome to index ".concat(username);
 	}
 	
 	@GetMapping("index")

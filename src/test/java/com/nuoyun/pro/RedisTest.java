@@ -4,11 +4,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.nuoyun.pro.service.JedisService;
-import com.nuoyun.pro.service.RedisService;
 
 public class RedisTest extends BaseTest {
-	@Autowired
-	private RedisService redisService;
 	@Autowired
 	private JedisService jedisService;
 	
@@ -19,12 +16,10 @@ public class RedisTest extends BaseTest {
 	
 	@Test
 	public void test() {
-		jedisService.set("zhangwei-test", "zhangwei");
-		System.err.println(jedisService.get("zhangwei-test"));
-		int i = 0;
-		while (i<10) {
-			test1();
-			i++;
-		}
+		String result = jedisService.set("testex", "zhangwei",10l);
+		System.err.println(String.valueOf(result).contentEquals("OK"));
+		System.err.println(jedisService.set("testex", "zhangwei"));
+		
+		
 	}
 }

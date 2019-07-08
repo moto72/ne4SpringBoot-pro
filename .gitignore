@@ -1,5 +1,7 @@
 /target/
 
+/src/test/resources/
+
 /logs/
 .settings/
 .project
