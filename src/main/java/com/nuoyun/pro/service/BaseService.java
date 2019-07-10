@@ -16,4 +16,5 @@ public class BaseService {
 	protected JdbcTemplate getJdbcTemplate() {
 		return baseService.getJdbcTemplate();
 	}
+	
 }
