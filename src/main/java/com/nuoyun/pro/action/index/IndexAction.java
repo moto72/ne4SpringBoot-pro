@@ -9,11 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nuoyun.pro.action.BaseAction;
 import com.nuoyun.pro.service.index.IndexService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j
 @RequestMapping("/")
+@Api(value = "首页测试类")
 public class IndexAction extends BaseAction {
 	@Autowired
 	private IndexService indexService;
@@ -39,6 +42,7 @@ public class IndexAction extends BaseAction {
 	}
 
 	@GetMapping("logout")
+	@ApiOperation(value = "用户退出", notes = "用户通过token以及uid退出登陆状态")
 	public String logout() {
 		return "GoodBye";
 	}
